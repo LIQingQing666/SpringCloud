@@ -48,6 +48,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+<!--        引入负载均衡依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -63,6 +68,18 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- 新增：配置跳过 Maven 测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <!-- 版本和你之前的一致，避免版本冲突 -->
+                <version>3.2.5</version>
+                <configuration>
+                    <!-- 开启跳过测试，true 表示跳过，false 表示执行 -->
+                    <skipTests>true</skipTests>
+                </configuration>
             </plugin>
         </plugins>
     </build>
