@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>services</module>
+        <module>model</module>
     </modules>
     <groupId>com.atguigu</groupId>
     <artifactId>cloud-demo</artifactId>
@@ -25,6 +26,7 @@
         <spring-cloud.version>2023.0.3</spring-cloud.version>
         <spring-cloud-alibaba.version>2023.0.3.2</spring-cloud-alibaba.version>
     </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -41,6 +43,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- 注意：这里spring-boot-starter-web不需要放在dependencyManagement中（可选，不影响核心功能） -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
@@ -50,11 +53,8 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+            <!-- 移除：spring-boot-maven-plugin，仅在可运行子模块中配置 -->
+            <!-- 父工程作为pom类型，无需打包插件，避免子模块继承后出问题 -->
         </plugins>
     </build>
-
 </project>
