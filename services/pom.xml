@@ -24,6 +24,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>annotation</scope>
+        </dependency>
+    </dependencies>
 
     <!-- 2. 统一管理编译插件，强制绑定 JDK 17（子模块自动继承，无需重复配置） -->
     <build>

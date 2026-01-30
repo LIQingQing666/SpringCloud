@@ -1,0 +1,24 @@
+package com.atguigu.product.service.impl;
+
+import com.atguigu.product.bean.Product;
+import com.atguigu.product.service.ProductService;
+import org.springframework.stereotype.Service;
+
+import java.beans.BeanInfo;
+import java.math.BigDecimal;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+
+
+    @Override
+    public Product getProduct(Long productId) {
+        Product product = new Product();
+        product.setId(productId);
+        product.setPrice(new BigDecimal("99"));
+        product.setProductname("苹果" + productId);
+        product.setNum(2);
+
+        return product;
+    }
+}
