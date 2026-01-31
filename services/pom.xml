@@ -35,6 +35,11 @@
             <artifactId>model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+<!--        引入配置中心依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
     </dependencies>
 
     <!-- 2. 统一管理编译插件，强制绑定 JDK 17（子模块自动继承，无需重复配置） -->

@@ -68,7 +68,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 进阶：根据商品信息远程调用商品服务-负载均衡
+     * 进阶2：根据商品信息远程调用商品服务-负载均衡
      * @param productId
      * @return
      */
@@ -78,6 +78,19 @@ public class OrderServiceImpl implements OrderService {
         //远程url
         String url = "http://" +choose.getHost() + ":" + choose.getPort() + "/product/" + productId;
         //2.给远程发送请求
+        log.info("远程请求，路径是url:{}",url);
+        Product forObject = restTemplate.getForObject(url, Product.class);
+        return forObject;
+    }
+
+    /**
+     * 进阶3：基于注解的负载均衡功能
+     * @param productId
+     * @return
+     */
+    private Product getProductFromRemoteWithLoadBalancerAnnotion(Long productId) {
+        String url = "http://service-product/product/" + productId;
+        //给远程发送请求,service-product会被动态替换
         log.info("远程请求，路径是url:{}",url);
         Product forObject = restTemplate.getForObject(url, Product.class);
         return forObject;
