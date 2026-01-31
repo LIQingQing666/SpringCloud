@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    openfeign:
+       # 关键：添加 feign 层级，不能少
+      client:
+        config:
+          default: # 全局生效（所有 Feign 客户端）
+            logger-level: full # 日志级别 full（打印完整请求/响应）
+            connect-timeout: 1000 # 连接超时 1 秒（也可以写 connectTimeout）
+            read-timeout: 2000 # 读取超时 2 秒（也可以写 readTimeout）
+          service-product: # 针对 service-product 服务生效（优先级高于全局）
+            logger-level: full
+            connect-timeout: 3000 # 连接超时 3 秒
+            read-timeout: 5000 # 读取超时 5 秒
+#            retryer: feign.retryer.Default
