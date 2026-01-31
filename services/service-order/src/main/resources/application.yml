@@ -13,6 +13,11 @@ spring:
         import-check:
           enabled: false
         namespace: ${spring.profiles.active:dev}
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719 # 必须配置，指定本地通信端口
+      eager: true
 
 logging:
   level:
