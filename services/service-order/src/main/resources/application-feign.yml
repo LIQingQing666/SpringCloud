@@ -12,4 +12,12 @@ spring:
             logger-level: full
             connect-timeout: 3000 # 连接超时 3 秒
             read-timeout: 5000 # 读取超时 5 秒
+    sentinel:
+      transport:
+        dashboard: locallhost:8080
+      eager: true
 #            retryer: feign.retryer.Default
+
+feign:
+  sentinel:
+    enabled: true
